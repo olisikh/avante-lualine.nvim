@@ -17,7 +17,11 @@ end
 local avante_config = lazy_require("avante.config")
 
 M.get_provider = function()
-    return avante_config.provider or "Avante N/A"
+    if not avante_config.provider then
+        return "Avante N/A"
+    end
+
+    return "Avante: " .. avante_config.provider
 end
 
 return M
